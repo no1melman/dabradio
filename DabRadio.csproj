@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9418A6E-75F2-4ADA-84A7-F1039FA5C00D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DabRadio</RootNamespace>
+    <AssemblyName>DabRadio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MediatR, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.2.1.0\lib\net45\MediatR.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.4.2.472, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.2\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlNotFoundException.cs" />
+    <Compile Include="DefaultSelectedCommPort.cs" />
+    <Compile Include="FormControlObtainer.cs" />
+    <Compile Include="IFormControlObtainer.cs" />
+    <Compile Include="ISelectedCommPort.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NullSelectedCommPort.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramInfoDtoExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadioFunctions\DabSearch\DabCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\DabSearch\GetDabProgramsRequest.cs" />
+    <Compile Include="RadioFunctions\DabSearch\GetDabProgramsRequestHandler.cs" />
+    <Compile Include="RadioFunctions\DabSearch\IDabCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\DabSearch\IProgramInfoDto.cs" />
+    <Compile Include="RadioFunctions\DabSearch\NullProgramInfoDto.cs" />
+    <Compile Include="RadioFunctions\DabSearch\ProgramInfoDto.cs" />
+    <Compile Include="RadioFunctions\ProgramInfo\GetProgramTextRequest.cs" />
+    <Compile Include="RadioFunctions\ProgramInfo\GetProgramTextRequestHandler.cs" />
+    <Compile Include="RadioFunctions\SignalStrength\GetSignalStrengthRequest.cs" />
+    <Compile Include="RadioFunctions\SignalStrength\GetSignalStrengthRequestHandler.cs" />
+    <Compile Include="RadioFunctions\Stream\IStreamCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\Stream\Play\PlayStreamRequest.cs" />
+    <Compile Include="RadioFunctions\Stream\Play\PlayStreamRequestHandler.cs" />
+    <Compile Include="RadioFunctions\Stream\Stop\StopStreamRequest.cs" />
+    <Compile Include="RadioFunctions\Stream\Stop\StopStreamRequestHandler.cs" />
+    <Compile Include="RadioFunctions\Stream\StreamCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\TurnOff\TurnOffRequest.cs" />
+    <Compile Include="RadioFunctions\TurnOff\TurnOffRequestHandler.cs" />
+    <Compile Include="RadioFunctions\IRadioCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\RadioCommandDispatcher.cs" />
+    <Compile Include="RadioFunctions\TurnOn\TurnOnRadioRequestHandler.cs" />
+    <Compile Include="RadioFunctions\TurnOn\TurnOnRadioRequest.cs" />
+    <Compile Include="RadioFunctions\Volume\SetVolumeRequest.cs" />
+    <Compile Include="RadioFunctions\Volume\SetVolumeRequestHandler.cs" />
+    <Compile Include="SerialComms\RetrieveSerialPortsRequest.cs" />
+    <Compile Include="SerialComms\RetrieveSerialPortsRequestHandler.cs" />
+    <Compile Include="SerialComms\SerialPortDto.cs" />
+    <Compile Include="StateMachine\IRadioStateMachine.cs" />
+    <Compile Include="StateMachine\RadioState.cs" />
+    <Compile Include="StateMachine\RadioStateMachine.cs" />
+    <Compile Include="StateMachine\RadioStateTransistion.cs" />
+    <Compile Include="StateMachine\StateTransitionEventHandlerArgs.cs" />
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
